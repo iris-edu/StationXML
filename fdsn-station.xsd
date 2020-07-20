@@ -604,7 +604,7 @@
 		</xs:attribute>
 		<xs:attribute name="resourceId" type="xs:string">
 			<xs:annotation>
-				<xs:documentation> An resource identifier that serves to uniquely identify this response stage.
+				<xs:documentation>A resource identifier that serves to uniquely identify this response stage.
 					This identifier can be interpreted differently depending on the datacenter/software
 					that generated the document. Also, we recommend using a prefix, like GENERATOR:Meaningful ID.
 					It should be expected that equipment with the same ID should indicate the same information/be
@@ -1093,7 +1093,7 @@
 	</xs:complexType>
 	<xs:complexType name="DipType">
 		<xs:annotation>
-			<xs:documentation>Instrument dip in degrees down from horizontal.
+			<xs:documentation>Instrument dip in degrees, positive down from horizontal.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
@@ -1324,7 +1324,7 @@
 	</xs:complexType>
 	<xs:complexType name="ExternalReferenceType">
 		<xs:annotation>
-			<xs:documentation>This type contains a URI and description for external data that users
+			<xs:documentation>This type contains a Uniform Resource Identifier (URI) and description for external data that users
 				may want to reference in StationXML.
 			</xs:documentation>
 		</xs:annotation>
@@ -1369,7 +1369,7 @@
 			</xs:element>
 			<xs:element name="PhoneNumber">
 				<xs:annotation>
-					<xs:documentation>Telephone phonenumber</xs:documentation>
+					<xs:documentation>Telephone phone number</xs:documentation>
 					<xs:documentation>Example:&lt;PhoneNumber&gt;5551212&lt;/PhoneNumber&gt;</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -1455,7 +1455,7 @@
 		</xs:sequence>
 		<xs:attribute name="resourceId" type="xs:string">
 			<xs:annotation>
-				<xs:documentation> An identifier that serves to unique identify this resource.
+				<xs:documentation> A resource identifier that serves to unique identify this filter or response.
 					This identifier can be interpreted differently depending on the datacenter/software
 					that generated the document. Also, we recommend using a prefix, e.g., GENERATOR:Meaningful ID.
 					It should be expected that equipment with the same ID should indicate the same information/be
@@ -1474,7 +1474,7 @@
 		<xs:annotation>
 			<xs:documentation>The complete instrument response for this channel that expresses the effect of the
 				geophysical instrumentation used to record the input ground motion.
-				The information can be used to convert raw data to Earth at a specified
+				The information can be used to convert raw data to Earth unit measurement at a specified
 				frequency or within a range of frequencies.
 				It is strongly suggested that either InstrumentSensitivity or InstrumentPolynomial should be present.
 			</xs:documentation>
@@ -1490,7 +1490,7 @@
 				</xs:annotation>
 				<xs:element name="InstrumentSensitivity" type="fsx:SensitivityType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation> The total sensitivity for a channel, representing the
+						<xs:documentation>The total sensitivity for a channel, representing the
 							complete acquisition system expressed as a scalar.
 							All instrument responses except polynomial response should have
 							an InstrumentSensitivity.
@@ -1604,7 +1604,7 @@
 		</xs:attribute>
 		<xs:attribute name="historicalCode" type="xs:string" use="optional">
 			<xs:annotation>
-				<xs:documentation>A previously used code if different from the current code.</xs:documentation>
+				<xs:documentation>A previously used code if different from the current, identifying code.</xs:documentation>
 				<xs:documentation>Example:historicalCode='II'</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
