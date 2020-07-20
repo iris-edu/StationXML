@@ -32,7 +32,7 @@
 	targetNamespace="http://www.fdsn.org/xml/station/1" elementFormDefault="qualified"
 	attributeFormDefault="unqualified" version="1.1">
 	<xs:annotation>
-		<xs:documentation>FDSN StationXML schema. A metadata standard for seismological and related data.
+		<xs:documentation>FDSN StationXML schema. A metadata standard for seismological and related sensor data.
 		</xs:documentation>
 	</xs:annotation>
 	<!-- Root element -->
@@ -46,13 +46,13 @@
 		<xs:sequence>
 			<xs:element name="Source" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Generator of the information contained in the document.
+					<xs:documentation>Originator of the information contained in the document.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Sender" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of the institution sending this message.
+					<xs:documentation>Name of the institution sending this document.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -65,14 +65,14 @@
 			</xs:element>
 			<xs:element name="ModuleURI" type="xs:anyURI" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Address of the query that generated the document,
-						or, if applicable, the address of the software that generated this document.
+					<xs:documentation>Resource identifier of the query that generated the document,
+						or, if applicable, the resource identifier of the software that generated this document.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Created" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation> Creation date of the documentation.
+					<xs:documentation>Date that this documentation was generated.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -81,7 +81,7 @@
 		</xs:sequence>
 		<xs:attribute name="schemaVersion" type="xs:decimal" use="required">
 			<xs:annotation>
-				<xs:documentation>The schema version compatible with the document.
+				<xs:documentation>The StationXML schema version of this document.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
@@ -92,7 +92,7 @@
 		<xs:documentation>The Network container. All station metadata for this network is contained within this element.
 		A Description element may be included with the official network name and other descriptive information.
 		An Identifier element may be included to designate a persistent identifier (e.g. DOI) to use for citation.
-		A Comment element may be included for arbitrary comments.
+		A Comment element may be included for additional comments.
       		</xs:documentation>
       		<xs:documentation>Example:&lt;Network code="IU" startDate=2016-01-27T13:00:00&gt;</xs:documentation>
 		</xs:annotation>
@@ -107,7 +107,7 @@
 					</xs:element>
 					<xs:element name="TotalNumberStations" type="fsx:CounterType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation> The total number of stations in this
+							<xs:documentation>The total number of stations in this
 								network, including inactive or terminated stations.
 							</xs:documentation>
               <xs:documentation>Example:&lt;TotalNumberStations&gt;24&lt;/TotalNumberStations&gt;</xs:documentation>
@@ -116,7 +116,7 @@
 					</xs:element>
 					<xs:element name="SelectedNumberStations" type="fsx:CounterType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation> The number of stations selected in the request that resulted
+							<xs:documentation>The number of stations selected in the request that resulted
 								in this document.
 							</xs:documentation>
               <xs:documentation>Example:&lt;SelectedNumberStations&gt;12&lt;/SelectedNumberStations&gt;</xs:documentation>
@@ -134,7 +134,7 @@
 		<xs:documentation>The Station container. All channel metadata for this station is contained within this element.
 		A Description element may be included with the official station name and other descriptive information.
 		An Identifier element may be included to designate a persistent identifier (e.g. DOI) to use for citation or reference.
-		A Comment element may be included for arbitrary comments.
+		A Comment element may be included for additional comments.
 		</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -142,13 +142,13 @@
 				<xs:sequence>
 					<xs:element name="Latitude" type="fsx:LatitudeType">
 						<xs:annotation>
-		<xs:documentation>Station latitude, by default in degrees. Where the bulk of the equipment is located (or another appropriate site location).</xs:documentation>
+		<xs:documentation>Station latitude, by default in signed decimal degrees. Where the bulk of the equipment is located (or another appropriate site location).</xs:documentation>
 		<xs:documentation>Example:&lt;Latitude unit=&quot;DEGREES&quot; datum=&quot;WGS84&quot;&gt;34.9459&lt;/Latitude&gt;</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Longitude" type="fsx:LongitudeType">
 						<xs:annotation>
-		<xs:documentation>Station longitude, by default in degrees. Where the bulk of the equipment is located (or another appropriate site location).</xs:documentation>
+		<xs:documentation>Station longitude, by default in signed decimal degrees. Where the bulk of the equipment is located (or another appropriate site location).</xs:documentation>
 		<xs:documentation>Example:&lt;Longitude unit=&quot;DEGREES&quot; datum=&quot;WGS84&quot;&gt;-106.4572&lt;/Longitude&gt;</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -167,7 +167,7 @@
 					</xs:element>
 					<xs:element name="WaterLevel" type="fsx:FloatType" minOccurs="0">
 						<xs:annotation>
-		<xs:documentation>Elevation of the water surface (in meters) for underwater sites, where 0 is sea level.
+		<xs:documentation>Elevation of the water surface (in meters) for underwater sites, where 0 is mean sea level.
 		If you put an ocean-bottom seismometer (OBS) on a lake bottom, where the lake surface is at elevation=0, then you should set WaterLevel=0.
 		</xs:documentation>
 		<xs:documentation>Example:&lt;WaterLevel&gt;1200&lt;/WaterLevel&gt;</xs:documentation>
@@ -254,7 +254,7 @@
 					</xs:element>
 					<xs:element name="Latitude" type="fsx:LatitudeType">
 						<xs:annotation>
-							<xs:documentation>Latitude of this channel's sensor, by default in degrees.
+							<xs:documentation>Latitude of this channel's sensor, by default in signed decimal degrees.
 								Often the same as the station latitude, but
 								when different the channel latitude is the true location of the sensor.
 							</xs:documentation>
@@ -263,7 +263,7 @@
 					</xs:element>
 					<xs:element name="Longitude" type="fsx:LongitudeType">
 						<xs:annotation>
-							<xs:documentation>Longitude of this channel's sensor, by default in degrees.
+							<xs:documentation>Longitude of this channel's sensor, by default in signed decimal degrees.
 								Often the same as the station longitude, but
 								when different the channel longitude is the true location of the sensor.
 							</xs:documentation>
@@ -293,7 +293,7 @@
 					</xs:element>
 					<xs:element name="WaterLevel" type="fsx:FloatType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Elevation of the water surface in meters for underwater sites, where 0 is sea level.
+							<xs:documentation>Elevation of the water surface in meters for underwater sites, where 0 is mean sea level.
 								If you put an OBS on a lake bottom, where the lake surface is at elevation=0,
 								then you should set WaterLevel=0.
 							</xs:documentation>
@@ -402,7 +402,7 @@
 	<!-- End ChannelType -->
 	<xs:complexType name="GainType">
 		<xs:annotation>
-			<xs:documentation>Type for sensitivity at a given frequency. This complex type
+			<xs:documentation>Type used in representing sensitivity at a given frequency. This complex type
 				can be used to represent both total sensitivities and individual stage gains.
 			</xs:documentation>
 		</xs:annotation>
@@ -441,7 +441,7 @@
 			</xs:element>
 			<xs:element name="FrequencyDBVariation" type="xs:double">
 				<xs:annotation>
-					<xs:documentation>Variation in decibels within the specified frequency range.
+					<xs:documentation>Variation in decibels (dB) within the specified frequency range.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -530,14 +530,14 @@
 			</xs:element>
 			<xs:element name="CalibrationDate" type="xs:dateTime" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A description of the units of the calibration.</xs:documentation>
+					<xs:documentation>Date that this equipment was calibrated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="resourceId" type="xs:string" use="optional">
 			<xs:annotation>
-				<xs:documentation>An identifier that serves to unique identify this resource.
+				<xs:documentation>A resource identifier that serves to unique identify this equipment.
 					This identifier can be interpreted differently depending on the datacenter/software
 					that generated the document. Also, we recommend using a prefix, e.g., GENERATOR:Meaningful ID.
 					It should be expected that equipment with the same ID should indicate the same information/be
@@ -550,7 +550,7 @@
 	<xs:complexType name="ResponseStageType">
 		<xs:annotation>
 			<xs:documentation>Type for channel response entry or stage.  A full response is
-				represented as a sequence of these stages.
+				represented as an ordered sequence of these stages.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -604,7 +604,7 @@
 		</xs:attribute>
 		<xs:attribute name="resourceId" type="xs:string">
 			<xs:annotation>
-				<xs:documentation> An identifier that serves to uniquely identify this resource.
+				<xs:documentation> An resource identifier that serves to uniquely identify this response stage.
 					This identifier can be interpreted differently depending on the datacenter/software
 					that generated the document. Also, we recommend using a prefix, like GENERATOR:Meaningful ID.
 					It should be expected that equipment with the same ID should indicate the same information/be
